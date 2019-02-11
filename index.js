@@ -6,10 +6,11 @@ var web3 = new Web3(new Web3.providers.HttpProvider(process.env.API_URL));
 
 var balance = web3.eth.getBalance(process.env.ACCOUNT, function (error, result) {
     if (!error) {
-	console.log(web3.utils.fromWei(new BigNumber(result), 'ether'));
+	console.log(web3.utils.fromWei(new BigNumber(result).toString(), 'ether'));
     } else {
       console.error(error);
     }
   });
 
+// add .toString() to BigNumber due to error
 
